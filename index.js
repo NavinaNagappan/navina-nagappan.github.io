@@ -42,3 +42,21 @@ window.addEventListener("scroll", () => {
     alterStyles(isBackToTopRendered);
   }
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const headers = document.querySelectorAll(".accordion-header");
+
+  headers.forEach(header => {
+    header.addEventListener("click", () => {
+      const item = header.closest('.accordion-item');
+      const icon = header.querySelector('.accordion-icon');
+
+      // Toggle active class
+      item.classList.toggle('active');
+
+      // Toggle icon
+      icon.textContent = item.classList.contains('active') ? '−' : '+';
+    });
+  });
+});
